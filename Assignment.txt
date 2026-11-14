@@ -1,5 +1,5 @@
-Datatype Assignment
-====================
+Datatype Assignments
+===============================
 
 1. Identify the datatype
 Create variables for the following values and identify their datatype:
@@ -54,3 +54,5 @@ Then answer:
 2. What does typeof userName return?
 3. What does typeof userEmail return?
 4. Why is typeof null considered unusual in JavaScript?
+
+=================================
