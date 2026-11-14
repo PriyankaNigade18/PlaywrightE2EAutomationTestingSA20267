@@ -4,7 +4,7 @@ Variable
 ===========
 - Name of storage location is called variable
 
-- Js uses keywrod to declare variable
+- Js uses keyword to declare variable
 ---------------------------
 1.var(older Js) Modern Js: 1.let (Mutable)   2.const (Immutable)
 
@@ -100,7 +100,7 @@ Ways to declare string
 1. single quoat 'Hello'
 2. double quoat "Hello"
 ES6
-3. template string (back tick) `Hello`
+3. template string (back tick) `Hello` ES6
 
 Note:
 In java we have char type 'single character'
@@ -160,6 +160,280 @@ let payload=`{
 
 console.log(payload);
 console.log(typeof payload);//JSON string in API testing
+
+const frameworkName="Playwright";
+
+
+let info1=frameworkName+" is WebUI automation Framework";
+console.log(info1);
+
+let info2=`${frameworkName} is WebUI and API automation Framework`;
+console.log(info2);
+
+console.log("-------------");
+
+/*
+undefined
+=============
+If any variable declare without initialization then type and value
+of that variable will become undefined
+
+In Js we dont have any default value
+
+
+*/
+
+let marks;
+console.log(marks);//undefined
+console.log(typeof marks);//undefined
+
+console.log("---------------");
+/*
+null
+===========
+null means unknown type if data or something we have store intentionally as null data
+
+what is data type of null?
+---------------------------
+- lagacy bug available in Js language
+- type of null will be always object type
+
+"null is a primitive value, but typeof null returns "object" because of a 
+historical legacy behavior." 
+typeof null returns "object" because of a historical bug in JavaScript's 
+original implementation. Although null is a primitive value, this behavior 
+was retained for backward compatibility, so it is now considered a legacy 
+behavior of the language.
+
+*/
+
+let studentAddress=null;
+console.log(studentAddress);//null
+console.log(typeof studentAddress);//object
+
+studentAddress="UK";
+console.log(studentAddress);//UK
+console.log(typeof studentAddress);//string
+
+//empty data
+let data="";
+console.log("Data is: "+data);
+console.log(typeof data);//string
+
+
+
+console.log("------ES6 version data types-----");
+/*
+6.bigInt
+7.symbol
+*/
+
+let num=789809809809807867875;
+console.log(num);//789809809809807900000
+console.log(typeof num);//number
+//for bigint number declaration add n as suffix value
+num=789809809809807867875n;
+console.log(num);
+console.log(typeof num);
+
+
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(Number.MAX_VALUE);
+
+let x=1.7976931348623157e+308;
+console.log(x);
+console.log(typeof x);
+
+x=17976931348623157308n;
+console.log(x);
+console.log(typeof x);
+
+
+
+console.log("-----------------");
+/*
+Symbol
+===========
+- It is applicable for Js Object
+- It is used to create unique keys in Js Object
+
+-Object is any real world entity which has state and Behavior
+- Object is instance of class
+- Object is nonprimitive
+
+In Js we have 4 ways to declare object
+==============================
+1. Object literal: Key:value
+2. Class level Object (ES6)
+
+3. Constructor function(ES6)
+4. Prototype based object
+
+*/
+
+console.log("----Object Literal----");
+
+//{}
+
+let user={};
+console.log(user);//{} empty object
+console.log(typeof user);//object
+
+//Array is Js dynamic Object: []
+let studentId=[101,102,103];
+console.log(studentId);
+console.log(typeof studentId);//object
+
+//Object literal with key and value
+let person={
+  id:1010,
+  fname:"Sarang"
+}
+
+
+console.log(person);//{ id: 1010, fname: 'Sarang' }
+console.log(typeof person);//object
+
+//Operations: CRUD-->create/add, read, upadate ,delete
+
+/*
+To read any value
+=================
+1. dot notation syntax
+------------------------
+ObjectName.keyname
+
+2.square bracket notation syntax
+---------------------------------
+objectName['key'];//string key
+
+*/
+
+//accessing current properties of Object
+console.log(person.id);
+console.log(person.fname);
+
+console.log(person[`id`]);
+console.log(person['fname']);
+
+//Add new Property in Object: dot notation
+person.address="Mumbai";
+console.log(person);//{ id: 1010, fname: 'Sarang', address: 'Mumbai' }
+
+//modify any property of object
+person.address="Pune";
+person.fname="Sneha";
+console.log(person);//{ id: 1010, fname: 'Sneha', address: 'Pune' }
+
+//delete any property
+delete person.address;
+console.log(person);//{ id: 1010, fname: 'Sneha' }
+
+delete person.id;
+console.log(person);//{ fname: 'Sneha' }
+
+
+console.log("---------Symbol--------");
+//assign unique key to object we have symbol type
+
+let profile1=Symbol("QA");
+console.log(profile1);//Symbol(QA)
+console.log(typeof profile1);//symbol
+
+/*
+Scenario: Same employee working on two different application and I wanted to assign as per app 
+different id to same employee
+*/
+
+let employee={
+  empName:"Sameer",
+  profile:"QA",
+  project:["Project1","Project2"]
+}
+
+console.log(employee);
+
+//assign id to Sameer: Application(HR)
+employee.id=111;
+
+
+//assign id to Sameer: Application(Payroll)
+employee.id=222;
+console.log(employee);
+
+//we can set unique ids only using symbol type
+//declared two symbol type variable
+let hrId=Symbol("id");
+let payrollId=Symbol("id");
+
+//assign it to employee object
+employee[hrId]=111;
+employee[payrollId]=222;
+
+console.log(employee);
+console.log(employee[hrId]);
+console.log(employee[payrollId]);
+
+console.log("---------");
+
+/*
+Scenario2: we wanted assign unique id for two different students
+*/
+
+let student1={
+  name:"Kavitha",
+  subject:"Testing"
+}
+
+let student2={
+  name:"Amit",
+  subject:"Testing"
+}
+
+
+console.log(student1);
+console.log(student2);
+
+//assign unique id for both student
+let stdId=Symbol("id");// unique Key
+student1[stdId]=101;
+student2[stdId]=201;
+
+console.log(student1);
+console.log(student2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
