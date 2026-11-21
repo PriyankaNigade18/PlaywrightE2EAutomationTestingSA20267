@@ -56,6 +56,6 @@ console.log(typeof test2);//function
 console.log("Name of function: "+test2.name);//test2
 
 
-//function scope--->block scope--->hoisting...next session 
+
 
 
