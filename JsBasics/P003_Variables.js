@@ -139,7 +139,173 @@ console.log(`email is: ${emailId}`);
 test1();
 
 
-//function scope--->block scope--->hoisting...next session 
+console.log("----------function Scope-----------");
+/*
+Fnunction scope
+=====================
+-Any variable declared inside function like local variable  and access it withing function is called function scope
+-var is applicable for function
+-inside function we can access that data
+*/
+
+function show()
+{
+    //local variable
+    var automationType="Functional+API";
+    const browserName="Chrome";
+    let browserVersion=155;
+    console.log(automationType);
+    console.log(browserName);
+    console.log(browserVersion);
+    
+}
+
+
+//call
+show();
+
+console.log("------Call data outside the function----");
+ //console.log(automationType);//ReferenceError: automationType is not defined
+ //console.log(browserName);//ReferenceError: browserName is not defined
+ //console.log(browserVersion);//ReferenceError: browserVersion is not defined
+
+console.log("-------Block scope-------");
+/*
+2.Block scope
+============
+- Any variable declared inside block { } : if block,for/while loopis called block scope variable
+- let and const allowed in block scope
+- inside block we can access that data
+*/
+
+//block scope variable
+{
+    let testId=101;
+    console.log(testId);
+    
+}
+
+
+//console.log(testId);//ReferenceError: testId is not defined
+
+console.log("---------");
+if(true)
+{
+    let productName="Playwright";
+    const vendorName1="Microsoft";
+
+    console.log(productName);
+    console.log(vendorName1);
+    
+    
+}
+
+//console.log(productName);//ReferenceError: productName is not defined
+//console.log(vendorName1);//ReferenceError: vendorName1 is not defined
+
+
+
+console.log("----------------------------------");
+
+var a=10;//global
+console.log(a);//10
+function test2()
+{
+    var a=20;
+    console.log(a);//20
+    if(true)
+    {
+        //var is not applicable for block scope so it modifies functionscope data
+        var a=30;
+        console.log(a);//30
+        
+    }
+    console.log(a);//30
+    
+    
+}
+
+test2();
+
+
+console.log("-----------------");
+//let : Global + block
+
+let b=10;////global
+console.log(b);//10
+
+function test3()
+{
+    var a=100;
+    let b=20;
+    console.log(b);//20
+    
+    if(true)
+    {
+        let b=30;
+        console.log(b);//30
+        
+    }
+
+    console.log(b);//20
+    
+}
+test3();
+
+//console.log(a);//10
+
+console.log("---------");
+//const : global + block
+
+const x=10;//global
+console.log(x);//10
+
+function test4()
+{
+    const x=20;
+    console.log(x);//20
+
+    if(true)
+    {
+        const x=30;
+        console.log(x);//30
+        
+    }
+
+    console.log(x);//20
+    
+    
+
+}
+
+test4();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
